@@ -1,0 +1,1 @@
+This repository contains the five programs for the Chapter 6 homework. Each program is on a separate branch.
