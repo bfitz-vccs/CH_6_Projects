@@ -5,6 +5,7 @@ std::string region_name;
 int num_accidents;
 
 void getRegInfo(std::string &region, int &accidents);
+bool isLower(int first_value, int second_value);
 
 int main(){
 
@@ -27,4 +28,13 @@ void getRegInfo(std::string &region, int &accidents){
         std::cin >> accidents;
         }
 
+}
+
+bool isLower(int first_value, int second_value){
+    if (first_value <= second_value){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
