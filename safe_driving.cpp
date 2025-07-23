@@ -3,11 +3,12 @@
 
 std::string region_name;
 int num_accidents;
-int lowest_accidents = num_accidents;
+int lowest_accidents = 0;
 std::string safest_region;
 
 void getRegInfo(std::string &region, int &accidents);
-bool isLower(int first_value, int second_value);
+bool isLower(int accidents, int lowest_accidents);
+void showLowest(std::string region, int accidents);
 
 int main(){
     int user_option;
@@ -15,8 +16,8 @@ int main(){
     std::cout << "Please enter in 0 to quit and show the region with the lowest number of accidents" << std::endl;
     std::cin >> user_option;
     int count = 0;
+    
     while (user_option != 0){
-
         if (user_option != 1){
             std::cout << "Invalid option, please try again." << std::endl;
             std::cout << "Please enter in 1 to input the region name and number of accidents" << std::endl;
@@ -41,8 +42,7 @@ int main(){
         }
     }
 
-    std::cout << "Safest region: " << safest_region << std::endl;
-    std::cout << "Accidents in the region: " << lowest_accidents << std::endl; 
+    showLowest(safest_region, lowest_accidents);
 
     return 0;
 }
@@ -61,11 +61,16 @@ void getRegInfo(std::string &region, int &accidents){
 
 }
 
-bool isLower(int first_value, int second_value){
-    if (first_value <= second_value){
+bool isLower(int accidents, int lowest_accidents){
+    if (accidents <= lowest_accidents){
         return true;
     }
     else{
         return false;
     }
+}
+
+void showLowest(std::string region, int accidents){
+    std::cout << "The region with the lowest reported accidents was: " << region << std::endl;
+    std::cout << "The number of accidents for this region was: " << accidents << std::endl;
 }
