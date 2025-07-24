@@ -1,3 +1,8 @@
+/*
+This program prompts the user to enter in the length and width measurements of a rectangle.
+The program then outputs the perimeter and area of the rectangle based on the measurement inputs.
+*/
+
 #include <iostream>
 
 void getLengthWidth(float &length, float &width);
@@ -11,7 +16,9 @@ float rectangle_width;
 int main(){
     
     getLengthWidth(rectangle_length, rectangle_width);
-    displayProperties(rectangle_length, rectangle_width);
+    float rectangle_perimeter = calcPerimeter(rectangle_length, rectangle_width);
+    float rectangle_area = calcArea(rectangle_length, rectangle_width);
+    displayProperties(rectangle_perimeter, rectangle_area);
     return 0;
 }
 
@@ -63,7 +70,8 @@ void getLengthWidth(float &length, float &width){
 /*
 Function: calcPerimeter
 Purpose:
-    -Adds double the length to double the width to calculate the rectangle's perimeter
+    -Gets the length and width as arguments, adds double the length to double the width to 
+    calculate the rectangle's perimeter
 Parameters:
     - float length: length of rectangle
     - float width: width of rectangle
@@ -80,15 +88,44 @@ float calcPerimeter(float length, float width){
     return 2 * length + 2 * width;
     }
 
-
+/*
+Function: calcArea
+Purpose:
+    - Gets the length and width as arguments and returns their product
+Parameters:
+    - float length: length of rectangle
+    - float width: width of rectangle
+Returns:
+    - This function returns the product of length and width
+Preconditions:
+    - None
+Postconditions:
+    - Returns the rectangle area calculation
+Side Effects:
+    - None
+*/
 float calcArea(float length, float width){
     return length * width;
 }
 
-void displayProperties(float length, float width){
+/*
+Function: displayProperties
+Purpose:
+    - Displays the perimeter and area alongside descriptive textual output
+Parameters:
+    - float perimeter: perimeter of the rectangle
+    - float area: area of the rectangle
+Returns:
+    - Does not return any value, but prints output
+Preconditions:
+    - None
+Postconditions:
+    - Outputs the perimeter and area of the rectangle with descriptive textual output
+Side Effects:
+    - None
+*/
+void displayProperties(float perimeter, float area){
 
-    float perimeter = calcPerimeter(length, width);
-    float area = calcArea(length, width);
     std::cout << "The perimeter of the rectangle is: " << perimeter << std::endl;
     std::cout << "The area of the rectangle is: " << area << std::endl;
 }
